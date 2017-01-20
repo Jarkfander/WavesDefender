@@ -10,7 +10,7 @@ public enum BuildingType{
 	WATER = 4
 }
 
-public class GameState : MonoBehaviour {
+public class GameState{
 
 	private int _nbCadran;
 	private int _nbZone;
@@ -20,7 +20,7 @@ public class GameState : MonoBehaviour {
 	//1: cadran; 2: zone // true: active; false: capturée
 	private bool[,] _zones;
 
-	GameState (int nbCadran, int nbZone){
+	public GameState (int nbCadran, int nbZone){
 		_nbCadran = nbCadran;
 		_nbZone = nbZone;
 		_buildings = new BuildingType[_nbCadran,_nbZone,_nbZone];
@@ -119,11 +119,11 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	int getNbCadran(){
+	public int getNbCadran(){
 		return _nbCadran;
 	}
 
-	int getNbZone(){
+	public int getNbZone(){
 		return _nbZone;
 	}
 }

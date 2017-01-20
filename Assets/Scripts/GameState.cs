@@ -36,7 +36,7 @@ public class GameState : MonoBehaviour {
 
 		for (int i = 0; i < _nbCadran-1; i++) {
 			for (int j = 0; j< _nbZone; j++) {
-				_nbZone [i, j] = true;
+				_zones [i, j] = true;
 			} 
 		}
 

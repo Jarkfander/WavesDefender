@@ -25,6 +25,22 @@ public class GameState : MonoBehaviour {
 		_nbZone = nbZone;
 		_buildings = new BuildingType[_nbCadran,_nbZone,_nbZone];
 		_zones = new bool[_nbCadran, _nbZone];
+
+		for (int i = 0; i < _nbCadran-1; i++) {
+			for (int j = 0; j< _nbZone; j++) {
+				for (int k = 0; k < _nbZone; k++) {
+					_buildings[i, j, k] = BuildingType.NONE;
+				}
+			} 
+		}
+
+		for (int i = 0; i < _nbCadran-1; i++) {
+			for (int j = 0; j< _nbZone; j++) {
+				_nbZone [i, j] = true;
+			} 
+		}
+
+			
 	}
 
 	public void setBuilding(int cadran, int ligne, int emplacement, BuildingType building){
@@ -102,4 +118,13 @@ public class GameState : MonoBehaviour {
 			}
 		}
 	}
+
+	int getNbCadran(){
+		return _nbCadran;
+	}
+
+	int getNbCadran(){
+		return _nbZone;
+	}
 }
+

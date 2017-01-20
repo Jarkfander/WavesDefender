@@ -123,7 +123,7 @@ public class GameState : MonoBehaviour {
 		return _nbCadran;
 	}
 
-	int getNbCadran(){
+	int getNbZone(){
 		return _nbZone;
 	}
 }

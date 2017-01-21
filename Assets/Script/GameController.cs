@@ -44,6 +44,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float _mobsToSpawnNumber = 20;
 
+    //Audio
+    [SerializeField]
+    private AudioClip _gameOverAudio = null;
+
     // Use this for initialization
     void Start()
     {
@@ -173,6 +177,10 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = _gameOverAudio;
+        audioSource.Play();
+        
         DestroyAllExistingEnnemies();
     }
 

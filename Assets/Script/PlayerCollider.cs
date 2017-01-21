@@ -17,7 +17,7 @@ public class PlayerCollider : MonoBehaviour
         if (other.tag == "Monster")
         {
             Destroy(other.gameObject);
-            //_gameController.GameOver();
+            _gameController.GameOver();
         }
     }
 

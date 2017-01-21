@@ -24,6 +24,11 @@ public class TowerManager : MonoBehaviour
     private float _towerFireInterval;
     private float _damageTime;
 
+
+    private float _lastPlayedAudio;
+    private float _audioDelay = 1.0f;
+
+
     //Economie
     [SerializeField]
     private int _towerPrice = 0;
@@ -38,6 +43,12 @@ public class TowerManager : MonoBehaviour
     {
         if (_monstersToKill.Count > 0)
         {
+            if (Time.time > (_lastPlayedAudio+_audioDelay)) {
+                GetComponent<AudioSource>().Play();
+                _lastPlayedAudio = Time.time;
+            }
+            
+
             foreach (MobController mob in _monstersToKill.Values)
             {
                 mob.TakeDamage(_towerDamages, _towerElement);

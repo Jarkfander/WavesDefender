@@ -1,6 +1,5 @@
 # WavesDefender
 La Team Gamagora impose son style pour la GGJ 2017
-
 Waves Defender :
 
 Waves Defender est un projet inspiré des jeux type Tower defense, créé dans le cadre de la Global Game Jam 2017, sur le thème « Waves », à Lyon (69). 
@@ -12,7 +11,7 @@ Des ennemis, sous formes de particules viennent de l'extérieur du cercle en dir
 
 Hormis le fait de placer des tours pour se défendre, le joueur a aussi comme action à effectuer de faire pivoter les différents cercles du plateau de jeu afin d'adapter les positions de ses défenses en fonction du type d’agresseurs qui arrivent à lui.
 
-Il y a deux types d'ennemis et deux types de tours correspondants : Les ondes de lumière et les ondes de son. Les tours anti-lumière détruisent les particules de lumières et les tours anti-son détruisent les particules de son, ce qui apporte des points de score, ainsi que de la monnaie au joueur.
+Il y a deux types d'ennemis et deux types de tours correspondants : Les ondes de lumière et les ondes de son. Les tours anti-lumière détruisent les particules de lumières et les tours anti-son détruisent les particules de son, ce qui apporte des points de score, ainsi que de la monnaie au joueur. À l'inverse, si la tour et la particule ne sont pas compatibles, la particule en question récupère de la vie. Exemple : Une particule de lumière rentre dans la zone d'une tour anti-son, alors cette dernière va récupérer de la vie.
 
 En plus de ces deux unités, il existe une troisième entité qui est une particule positive représentée par un petit trou noir. Le but pour le joueur est d’empêcher que cette particule rentre en contact avec la zone des tours afin de lui permettre d'atteindre le centre de l'espace de jeu, ce qui lui rapportera de la monnaie, ainsi que des points de score.
 

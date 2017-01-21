@@ -9,5 +9,6 @@ public class BuildFlagController : MonoBehaviour {
 	public void build(int buildingNumber){
 		Buildings [buildingNumber].SetActive(true);
 		this.GetComponent<MeshRenderer> ().enabled = false;
+		this.GetComponent<Collider> ().enabled = false;
 	}
 }

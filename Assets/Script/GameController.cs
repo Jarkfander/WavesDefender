@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast (ray, out hit))
 			{
+				Debug.Log (hit.transform.tag + " " + hit.transform.name);
 				if(hit.transform.CompareTag("Flag"))
 				{
 					panelBuilding.SetActive (true);
@@ -120,4 +121,12 @@ public class GameController : MonoBehaviour {
             Destroy(monster.gameObject);
         }
     }
+
+	public void RotateBoardClockwise(){
+		targetRotationY = targetRotationY + 90;
+	}
+
+	public void RotateBoardAnticlockwise(){
+		targetRotationY = targetRotationY - 90;
+	}
 }

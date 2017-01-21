@@ -22,8 +22,6 @@ public class MobMover : MonoBehaviour
     }
 
     void Update(){
-        Debug.Log(_mobSpawn.name);
-        Debug.Log(_currentPathNodeNumber);
         if (_currentPathNodeNumber < _totalPathNodeNumberInMobSpawn) {
             Transform pathNodeToFollow = _mobSpawn.GetChild(_currentPathNodeNumber);
             if (pathNodeToFollow != null)

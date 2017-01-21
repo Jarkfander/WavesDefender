@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerDamages: 1
-  _towerElement: 2
+  _towerElement: 1
   _towerFireInterval: 0.1
 --- !u!135 &135028492696207026
 SphereCollider:

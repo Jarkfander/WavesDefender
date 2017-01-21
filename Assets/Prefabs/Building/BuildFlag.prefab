@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerDamages: 1
-  _towerElement: 2
+  _towerElement: 1
   _towerFireInterval: 0.1
 --- !u!114 &114972971845523084
 MonoBehaviour:

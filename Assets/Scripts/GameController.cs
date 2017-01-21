@@ -1,33 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour {
 
-    private int _NOMBRE_SPAWNS_PAR_ZONE = 5;
-    private int _NOMBRE_ZONES_PAR_CADRAN;
-    private int _NOMBRE_DE_CADRANS;
+	private int _NOMBRE_SPAWNS_PAR_ZONE = 5;
+	private int _NOMBRE_ZONES_PAR_CADRAN;
+	private int _NOMBRE_DE_CADRANS;
 
-    private GameState _gameState;
+	private GameState _gameState;
 
-    private GameObject _cadran;
+	private GameObject _cadran;
 
-    private GameObject[] _mobSpawns;
+	private GameObject[] _mobSpawns;
 
-    //int = numero de cadran
-    //sortedList : int = numero de zone -- GameObject = mobSpawns pour la zone
-    private SortedList<int,SortedList<int, GameObject>> _mobSpawnsParCadran = null;
+	//int = numero de cadran
+	//sortedList : int = numero de zone -- GameObject = mobSpawns pour la zone
+	private SortedList<int,SortedList<int, GameObject>> _mobSpawnsParCadran = null;
+	public GameObject _buildingPanel;
+	public EventSystem es;
 
+	private int _selectedSpotCadran;
+	private int _selectedSpotLigne;
+	private int _selectedSpotEmplacement;
 
-    void Start() {
-        _gameState = new GameState(5,3);
-        _NOMBRE_DE_CADRANS = _gameState.getNbCadran();
-        _NOMBRE_ZONES_PAR_CADRAN = _gameState.getNbZone();
-        initializeMobSpawns();
-    }
+	// Use this for initialization
+	void Start () {
+		_selectedSpotCadran = -1;
+		_selectedSpotLigne = -1;
+		_selectedSpotEmplacement = -1;
+		_buildingPanel.SetActive (false);
+		_gameState = new GameState(5,3);
+		_NOMBRE_DE_CADRANS = _gameState.getNbCadran();
+		_NOMBRE_ZONES_PAR_CADRAN = _gameState.getNbZone();
+		initializeMobSpawns();
 
-    void Update()
-    {
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
         Transform mobSpawnGroupDeLaZone = null;
         SortedList<int, GameObject> mobSpawns = null;
 
@@ -50,7 +63,9 @@ public class GameController : MonoBehaviour {
                                 //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
                                 mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
                             }
-                        }else{
+                        }
+                        else
+                        {
                             Debug.Log("Erreur : impossible de trouver le gameObject contenant les mobSpawns de départ du cadran " + numeroCadran);
                         }
                     }
@@ -61,13 +76,60 @@ public class GameController : MonoBehaviour {
                 //on remet la liste globale de mobSpawns à jour avec la liste temporaire pour le cadran en cours de traitement
                 _mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
 
-            }else{
+            }
+            else
+            {
                 Debug.Log("Erreur : cadran" + numeroCadran + " introuvable");
             }
 
         }
 
-    }
+        //Check click selection building spot
+        if (Input.GetMouseButtonDown (0)) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit)) {
+				BuildingSpot bs = hit.collider.GetComponent<BuildingSpot> ();
+				if (bs != null) {
+					_selectedSpotCadran = bs.cadran;
+					_selectedSpotLigne = bs.ligne;
+					_selectedSpotEmplacement = bs.ligne;
+
+					_buildingPanel.SetActive (true);
+				} 
+			}
+		}
+
+		if (Input.GetMouseButtonDown (1)) {
+			_buildingPanel.SetActive (false);
+		}
+	}
+
+	void BuildTheBuildingThatIsSelected(BuildingType b){
+		_gameState.setBuilding (_selectedSpotCadran, _selectedSpotLigne, _selectedSpotEmplacement, b);
+		//rebuild les buildings lololol
+	}
+
+	public void RotateClockwise(){
+		_gameState.rotateBuildingsClockwise();
+		//rebuild les buildings lololol
+	}
+
+	public void RotateAnticlockwise(){
+		_gameState.rotateBuildingsAnticlockwise();
+		//rebuild les buildings lololol
+	}
+
+	public void BuildPrism(){
+		BuildTheBuildingThatIsSelected (BuildingType.PRISM);
+		Debug.Log ("Bien!");
+	}
+
+	public void BuildBrass(){
+		BuildTheBuildingThatIsSelected (BuildingType.BRASS);
+		Debug.Log ("Oui messire");
+	}
 
     /// <summary>
     /// Cette méthode initialise la liste des mobSpawns actifs pour tous les cadrans

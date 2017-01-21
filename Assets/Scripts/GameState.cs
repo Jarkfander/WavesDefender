@@ -4,10 +4,8 @@ using UnityEngine;
 
 public enum BuildingType{
 	NONE = 0,
-	FIRE = 1,
-	WIND = 2,
-	EARTH = 3,
-	WATER = 4
+	PRISM = 1,
+	BRASS = 2
 }
 
 public class GameState{

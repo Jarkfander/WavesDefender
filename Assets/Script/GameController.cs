@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour {
                 mobSpawn = RandomMobSpawn();
                 if (mobsSpawnedNumber < _mobsToSpawnNumber && !_isGameOver)
                 {
-                    GameObject spawnedMonster = (GameObject)Instantiate(monsterToSpawn, mobSpawn.transform.position, mobSpawn.transform.rotation,_Board.transform);
+                    GameObject spawnedMonster = (GameObject)Instantiate(monsterToSpawn, mobSpawn.transform.position, mobSpawn.transform.rotation);
                     spawnedMonsterMover = spawnedMonster.GetComponent<MobMover>();
                     spawnedMonsterMover.InitializeMobSpawn(mobSpawn);
                     mobsSpawnedNumber++;
@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour {
     }
 
     private Transform RandomMobSpawn() {
-        return GameObject.Find("MobSpawn" + (Random.Range(0, 2)+1)).transform;
+        return GameObject.Find("MobSpawn" + (Random.Range(0, 8)+1)).transform;
     }
 
     public void GameOver() {

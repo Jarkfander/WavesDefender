@@ -96,12 +96,13 @@ public class GameState{
 		//sauvegarde du dernier cadran dans le buffer
 		for (int i = 0; i < _nbZone; i++) {
 			for (int j = 0; j < _nbZone; j++) {
-				buffer[i, j] = _buildings [_nbCadran, i, j];
+				
+				buffer[i, j] = _buildings [_nbCadran-1, i, j];
 			}
 		}
 
 		//on switch tout les cadran, sauf le premier et le dernier
-		for (int i = _nbCadran; i > 0; i--) {
+		for (int i = _nbCadran-1; i > 0; i--) {
 			for (int j = 0; j< _nbZone; j++) {
 				for (int k = 0; k < _nbZone; k++) {
 					_buildings[i, j, k] = _buildings [i-1, j, k];

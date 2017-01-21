@@ -9,8 +9,6 @@ public class GameController : MonoBehaviour {
 	private int _NOMBRE_ZONES_PAR_CADRAN;
 	private int _NOMBRE_DE_CADRANS;
 
-	public bool _mustRebuild;
-
 	public GameState _gameState;
 
 	private GameObject _cadran;
@@ -37,7 +35,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_mustRebuild = false;
         Transform mobSpawnGroupDeLaZone = null;
         SortedList<int, Transform> mobSpawns = new SortedList<int, Transform>();
         int spawnCount = 0;
@@ -109,12 +106,12 @@ public class GameController : MonoBehaviour {
 
 	public void RotateClockwise(){
 		_gameState.rotateBuildingsClockwise();
-		_mustRebuild = true;
+		Rebuild ();
 	}
 
 	public void RotateAnticlockwise(){
 		_gameState.rotateBuildingsAnticlockwise();
-		_mustRebuild = true;
+		Rebuild ();
 	}
 
 	public void BuildPrism(){
@@ -128,7 +125,12 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Rebuild(){
-		_mustRebuild = true;
+		BuildingSpot[] buildingSpots = FindObjectsOfType<BuildingSpot> ();
+
+		foreach (BuildingSpot buildingSpot in buildingSpots) {
+			
+			buildingSpot.Rebuild ();
+		}
 	}
 
     /// <summary>

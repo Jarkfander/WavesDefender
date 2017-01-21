@@ -19,9 +19,7 @@ public class BuildingSpot : MonoBehaviour {
 	}
 
 	void Update(){
-		if (gc._mustRebuild) {
-			Rebuild ();
-		}
+		
 	}
 
 	public void Build(BuildingType b){
@@ -38,10 +36,13 @@ public class BuildingSpot : MonoBehaviour {
 	}
 
 	public void Rebuild(){
+		Debug.Log ("rebuilding");
 		BuildingType b = gc._gameState.getBuilding (cadran, ligne, emplacement);
 		if (b == BuildingType.NONE) {
+			Debug.Log ("unbuilding " + cadran + " " + ligne + " " + emplacement);
 			Unbuild ();
 		} else {
+			Debug.Log ("building "+ b +" in " + cadran + " " + ligne + " " + emplacement);
 			Build (b);
 		}
 	}

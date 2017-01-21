@@ -35,12 +35,10 @@ public class GameController : MonoBehaviour {
 		_NOMBRE_DE_CADRANS = _gameState.getNbCadran();
 		_NOMBRE_ZONES_PAR_CADRAN = _gameState.getNbZone();
 		initializeMobSpawns();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
         Transform mobSpawnGroupDeLaZone = null;
         SortedList<int, GameObject> mobSpawns = null;
 
@@ -75,10 +73,8 @@ public class GameController : MonoBehaviour {
 
                 //on remet la liste globale de mobSpawns à jour avec la liste temporaire pour le cadran en cours de traitement
                 _mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
-
             }
-            else
-            {
+            else{
                 Debug.Log("Erreur : cadran" + numeroCadran + " introuvable");
             }
 

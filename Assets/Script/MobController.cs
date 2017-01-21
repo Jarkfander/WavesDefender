@@ -23,6 +23,7 @@ public class MobController : MonoBehaviour {
     }
 
     private void Die() {
+
         Destroy(gameObject);
     }
 

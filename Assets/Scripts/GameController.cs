@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour {
         int spawnCount = 0;
 
         //Pour chaque cadran on met à jour la liste des mobspawns actifs
-        for (int numeroCadran = 1; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
+        for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
         {
             _cadran = GameObject.Find("Cadran" + numeroCadran);
             if (_cadran != null)
@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
                 //pour chaque zone on remplit une liste temporaire de mobSpawns
                 for (int numeroZone = _NOMBRE_ZONES_PAR_CADRAN; numeroZone > 0; numeroZone--)
                 {
-                    if (!_gameState.isZoneActive(numeroCadran-1, numeroZone-1))
+                    if (!_gameState.isZoneActive(numeroCadran, numeroZone-1))
                     {
                         mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(numeroZone - 1).GetChild(0);
                         if (mobSpawnGroupDeLaZone != null)
@@ -140,7 +140,7 @@ public class GameController : MonoBehaviour {
         int spawnCount = 0;
 
         //Pour chaque cadran on veut set les mobspawns actifs
-        for (int numeroCadran = 1; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
+        for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
         {
             _cadran = GameObject.Find("Cadran" + numeroCadran);
             if (_cadran != null) {

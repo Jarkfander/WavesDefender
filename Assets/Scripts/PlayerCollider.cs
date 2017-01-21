@@ -6,15 +6,12 @@ public class PlayerCollider : MonoBehaviour {
 
     private GameController _gameController;
 
-    void Start()
-    {
+    void Start(){
         _gameController = GameObject.Find("Plateau").GetComponent<GameController>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Monster"))
-        {
+    void OnTriggerEnter2D(Collider2D other){
+        if (other.CompareTag("Monster")){
             Debug.Log("Perdu");
             Destroy(other.gameObject);
         }

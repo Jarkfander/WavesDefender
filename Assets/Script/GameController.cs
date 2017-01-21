@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameController : MonoBehaviour
     public float speed;
     public GameObject panelBuilding;
     private GameObject Flag;
+
+
 
     //Economie
     [SerializeField]
@@ -49,6 +52,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private AudioClip _gameOverAudio = null;
 
+	public Button leftButton;
+	public Button rightButton;
+
     // Use this for initialization
     void Start()
     {
@@ -62,10 +68,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(targetRotationY - _Board.transform.rotation.eulerAngles.y) > 0.01)
-        {
-            _Board.transform.rotation = Quaternion.Lerp(_Board.transform.rotation, Quaternion.Euler(0.0f, targetRotationY, 0.0f), Time.deltaTime * speed);
-        }
+		if (Mathf.Abs (targetRotationY - _Board.transform.rotation.eulerAngles.y) > 0.02) {
+			_Board.transform.rotation = Quaternion.Lerp (_Board.transform.rotation, Quaternion.Euler (0.0f, targetRotationY, 0.0f), Time.deltaTime * speed);
+		} else {
+			leftButton.interactable = true;
+			rightButton.interactable = true;
+		}
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -196,11 +204,15 @@ public class GameController : MonoBehaviour
     public void RotateBoardClockwise()
     {
         targetRotationY = targetRotationY + 90;
+		leftButton.interactable = false;
+		rightButton.interactable = false;
     }
 
     public void RotateBoardAnticlockwise()
     {
         targetRotationY = targetRotationY - 90;
+		leftButton.interactable = false;
+		rightButton.interactable = false;
     }
 
     public int GetCurrentGold() {

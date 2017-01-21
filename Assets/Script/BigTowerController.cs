@@ -25,7 +25,7 @@ public class BigTowerController : MonoBehaviour {
 
 			_lr.enabled = true;
 		} else {
-			false;
+			_lr.enabled = false;
 		}
 	}
 

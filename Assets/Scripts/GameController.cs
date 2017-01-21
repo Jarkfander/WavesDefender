@@ -35,24 +35,36 @@ public class GameController : MonoBehaviour {
         for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
         {
             _cadran = GameObject.Find("Cadran" + numeroCadran);
-
-            //pour chaque zone on remplit une liste temporaire de mobSpawns
-            for (int numeroZone = _NOMBRE_ZONES_PAR_CADRAN; numeroZone > 0; numeroZone--){
-                if (!_gameState.isZoneActive(numeroCadran, numeroZone)) {
-                    mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(numeroZone-1).GetChild(1);
-
-                    for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++){
-                        //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
-                        mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+            if (_cadran != null)
+            {
+                //pour chaque zone on remplit une liste temporaire de mobSpawns
+                for (int numeroZone = _NOMBRE_ZONES_PAR_CADRAN; numeroZone > 0; numeroZone--)
+                {
+                    if (!_gameState.isZoneActive(numeroCadran, numeroZone))
+                    {
+                        mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(numeroZone - 1).GetChild(1);
+                        if (mobSpawnGroupDeLaZone != null)
+                        {
+                            for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++)
+                            {
+                                //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
+                                mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+                            }
+                        }else{
+                            Debug.Log("Erreur : impossible de trouver le gameObject contenant les mobSpawns de départ du cadran " + numeroCadran);
+                        }
                     }
-                }     
-            }
-            //On supprime la liste de MobSpawns active pour le cadran en cours de traitement
-            _mobSpawnsParCadran.Remove(numeroCadran);
+                }
+                //On supprime la liste de MobSpawns active pour le cadran en cours de traitement
+                _mobSpawnsParCadran.Remove(numeroCadran);
 
-            //on remet la liste globale de mobSpawns à jour avec la liste temporaire pour le cadran en cours de traitement
-            _mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
-            
+                //on remet la liste globale de mobSpawns à jour avec la liste temporaire pour le cadran en cours de traitement
+                _mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
+
+            }else{
+                Debug.Log("Erreur : cadran" + numeroCadran + " introuvable");
+            }
+
         }
 
     }
@@ -69,14 +81,25 @@ public class GameController : MonoBehaviour {
         for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
         {
             _cadran = GameObject.Find("Cadran" + numeroCadran);
-            mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(_NOMBRE_ZONES_PAR_CADRAN-1).GetChild(1);
+            if (_cadran != null) {
+                mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(_NOMBRE_ZONES_PAR_CADRAN - 1).GetChild(1);
 
-            for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++){
-                //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
-                mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+                if (mobSpawnGroupDeLaZone != null)
+                {
+                    for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++)
+                    {
+                        //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
+                        mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+                    }
+                    //on set la liste globale de mobSpawns avec la liste temporaire pour le cadran en cours de traitement
+                    _mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
+                }else{
+                    Debug.Log("Erreur : impossible de trouver le gameObject contenant les mobSpawns de départ du cadran "+numeroCadran);
+                }
+                
+            }else{
+                Debug.Log("Erreur : cadran" + numeroCadran+" introuvable");
             }
-            //on set la liste globale de mobSpawns avec la liste temporaire pour le cadran en cours de traitement
-            _mobSpawnsParCadran.Add(numeroCadran,mobSpawns);
         }
     }
 }

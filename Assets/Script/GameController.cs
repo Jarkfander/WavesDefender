@@ -73,10 +73,12 @@ public class GameController : MonoBehaviour
     {
 		if (Mathf.Abs (targetRotationY - _Board.transform.rotation.eulerAngles.y) > 0.02) {
 			_Board.transform.rotation = Quaternion.Lerp (_Board.transform.rotation, Quaternion.Euler (0.0f, targetRotationY, 0.0f), Time.deltaTime * speed);
-		} else {
+		} /*else {
 			leftButton.interactable = true;
 			rightButton.interactable = true;
-		}
+
+			_Board.transform.rotation = Quaternion.Euler (0.0f, targetRotationY, 0.0f);
+		}*/
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -97,7 +99,18 @@ public class GameController : MonoBehaviour
         {
             panelBuilding.SetActive(false);
         }
+
+		if (Input.GetButtonDown ("Rotate Clockwise")) {
+			RotateBoardClockwise ();
+		}
+
+		if (Input.GetButtonDown ("Rotate Counterclock")) {
+			RotateBoardAnticlockwise ();
+		}
+
     }
+
+
 
     public void BuildBrassOnFlag()
     {
@@ -208,16 +221,20 @@ public class GameController : MonoBehaviour
 
     public void RotateBoardClockwise()
     {
-        targetRotationY = targetRotationY + 90;
-		leftButton.interactable = false;
-		rightButton.interactable = false;
+		//if (rightButton.interactable) {
+			targetRotationY = targetRotationY + 90;
+			//leftButton.interactable = false;
+		//	rightButton.interactable = false;
+		//}
     }
 
     public void RotateBoardAnticlockwise()
     {
-        targetRotationY = targetRotationY - 90;
-		leftButton.interactable = false;
-		rightButton.interactable = false;
+		//if (leftButton.interactable) {
+			targetRotationY = targetRotationY - 90;
+			//leftButton.interactable = false;
+			//rightButton.interactable = false;
+		//}
     }
 
     public int GetCurrentGold() {

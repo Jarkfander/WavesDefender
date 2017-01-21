@@ -1,11 +1,11 @@
 # WavesDefender
 La Team Gamagora impose son style pour la GGJ 2017
-Waves Defender :
+Blackest Star :
 
-Waves Defender est un projet inspiré des jeux type Tower defense, créé dans le cadre de la Global Game Jam 2017, sur le thème « Waves », à Lyon (69). 
+Blackest Star est un projet inspiré des jeux type Tower defense, créé dans le cadre de la Global Game Jam 2017, sur le thème « Waves », à Lyon (69). 
 Dans ce jeu, le joueur se doit d'arrêter les vagues d'ennemis, les empêchant ainsi d’atteindre le centre de la map.
 
-Waves Defender s'éloigne des sentiers battus et se veut innovant puisque la partie prend place dans un environnement circulaire, divisé en trois cercles concentriques, eux-mêmes divisés en quatre.
+Blackest Star s'éloigne des sentiers battus et se veut innovant puisque la partie prend place dans un environnement circulaire, divisé en trois cercles concentriques, eux-mêmes divisés en quatre.
 
 Des ennemis, sous formes de particules viennent de l'extérieur du cercle en direction de son centre, et le joueur doit placer, sur les différents arcs du plateau, des tours afin de détruire les ennemis avant qu'ils n'atteignent leur objectif.
 

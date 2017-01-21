@@ -45,7 +45,7 @@ public class GameState{
 		_buildings [cadran, ligne, emplacement] = building;
 	}
 
-	BuildingType getBuilding(int cadran, int ligne, int emplacement){
+	public BuildingType getBuilding(int cadran, int ligne, int emplacement){
 		return _buildings [cadran, ligne, emplacement];
 	}
 

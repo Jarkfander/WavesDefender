@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 323269891}
   - component: {fileID: 323269893}
   - component: {fileID: 323269892}
+  - component: {fileID: 323269894}
   m_Layer: 5
   m_Name: Titre Goal of the Game
   m_TagString: Untagged
@@ -292,6 +293,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323269890}
+--- !u!114 &323269894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323269890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &382920717
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +578,7 @@ GameObject:
   - component: {fileID: 981979883}
   - component: {fileID: 981979885}
   - component: {fileID: 981979884}
+  - component: {fileID: 981979886}
   m_Layer: 5
   m_Name: Titre
   m_TagString: Untagged
@@ -629,6 +645,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 981979882}
+--- !u!114 &981979886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981979882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &986867487
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +669,7 @@ GameObject:
   - component: {fileID: 986867488}
   - component: {fileID: 986867490}
   - component: {fileID: 986867489}
+  - component: {fileID: 986867491}
   m_Layer: 5
   m_Name: Towers & Enemies
   m_TagString: Untagged
@@ -711,6 +742,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 986867487}
+--- !u!114 &986867491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 986867487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!224 &1075239589 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224980830092016494, guid: 2de466feb07c2344fab892019a65bfac,
@@ -822,6 +867,7 @@ GameObject:
   - component: {fileID: 1285095552}
   - component: {fileID: 1285095554}
   - component: {fileID: 1285095553}
+  - component: {fileID: 1285095555}
   m_Layer: 5
   m_Name: But du jeu
   m_TagString: Untagged
@@ -891,6 +937,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1285095551}
+--- !u!114 &1285095555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285095551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1348761020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1115,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2de466feb07c2344fab892019a65bfac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1397335723 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1124796847307640, guid: 2de466feb07c2344fab892019a65bfac,
+    type: 2}
+  m_PrefabInternal: {fileID: 1397335722}
+--- !u!114 &1397335724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1397335723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1437408288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1397,7 @@ GameObject:
   - component: {fileID: 2123285763}
   - component: {fileID: 2123285765}
   - component: {fileID: 2123285764}
+  - component: {fileID: 2123285766}
   m_Layer: 5
   m_Name: Titre Towers & Enemies
   m_TagString: Untagged
@@ -1387,3 +1467,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123285762}
+--- !u!114 &2123285766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2123285762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1

@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: 9b9250d2263d2f6479eb1609e620ad57
-timeCreated: 1484990206
+timeCreated: 1485020716
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _Board: {instanceID: 0}
+  - panelBuilding: {instanceID: 0}
+  - _goldText: {instanceID: 0}
+  - _towerPrism: {instanceID: 0}
+  - _towerBrass: {instanceID: 0}
+  - _lightMonster: {instanceID: 0}
+  - _soundMonster: {instanceID: 0}
+  - _gameOverAudio: {fileID: 8300000, guid: a6630e6d3bf2c06489f3c9e2fd77dac6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

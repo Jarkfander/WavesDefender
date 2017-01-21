@@ -37,3 +37,6 @@ Juline Camps (DU Infographie Gamagora 2016-2017)
 Développeurs : 
 Florent Dupont (DU Level Design Gamagora 2016-2017)
 Florian Bonnafoux (DU Level Design Gamagora 2016-2017)
+
+Sound Designer :
+Maya SteinBerg (Freelance)

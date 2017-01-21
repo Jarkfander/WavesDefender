@@ -11,6 +11,19 @@ public class GameController : MonoBehaviour
     public GameObject panelBuilding;
     private GameObject Flag;
 
+    //Economie
+    [SerializeField]
+    private int _startingGold = 0;
+    private int _currentGold =0;
+    [SerializeField]
+    private UnityEngine.UI.Text _goldText = null;
+
+    //Tours
+    [SerializeField]
+    private GameObject _towerPrism = null;
+    [SerializeField]
+    private GameObject _towerBrass = null;
+
     //Game over
     private bool _isGameOver;
 
@@ -32,12 +45,18 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float _mobsToSpawnNumber = 20;
 
+    //Audio
+    [SerializeField]
+    private AudioClip _gameOverAudio = null;
+
     // Use this for initialization
     void Start()
     {
         _isACalmPhase = true;
         _isGameOver = false;
         StartCoroutine(SpawnWaves());
+        _currentGold = _startingGold;
+        UpdateGoldText();
     }
 
     // Update is called once per frame
@@ -54,7 +73,7 @@ public class GameController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.tag + " " + hit.transform.name);
+                //Debug.Log(hit.transform.tag + " " + hit.transform.name);
                 if (hit.transform.CompareTag("Flag"))
                 {
                     panelBuilding.SetActive(true);
@@ -71,14 +90,32 @@ public class GameController : MonoBehaviour
 
     public void BuildBrassOnFlag()
     {
-        Flag.GetComponent<BuildFlagController>().build(1);
-        panelBuilding.SetActive(false);
+        int price = _towerBrass.GetComponent<TowerManager>().GetTowerPrice();
+        if (GetCurrentGold() >= price)
+        {
+            Flag.GetComponent<BuildFlagController>().build(1);
+            panelBuilding.SetActive(false);
+            RemoveGold(price);
+        }
+        else {
+            Debug.Log("Not enough gold to build a Brass Tower");
+        }
+        
     }
 
     public void BuildPrismOnFlag()
     {
-        Flag.GetComponent<BuildFlagController>().build(0);
-        panelBuilding.SetActive(false);
+        int price = _towerPrism.GetComponent<TowerManager>().GetTowerPrice();
+        if (GetCurrentGold() >= price)
+        {
+            Flag.GetComponent<BuildFlagController>().build(0);
+            panelBuilding.SetActive(false);
+            RemoveGold(price);
+        }
+        else
+        {
+            Debug.Log("Not enough gold to build a Prism Tower");
+        }
     }
 
     IEnumerator SpawnWaves()
@@ -141,6 +178,10 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = _gameOverAudio;
+        audioSource.Play();
+        
         DestroyAllExistingEnnemies();
     }
 
@@ -160,5 +201,26 @@ public class GameController : MonoBehaviour
     public void RotateBoardAnticlockwise()
     {
         targetRotationY = targetRotationY - 90;
+    }
+
+    public int GetCurrentGold() {
+        return _currentGold;
+    }
+
+    public void AddGold(int gold) {
+        _currentGold += gold;
+        UpdateGoldText();
+    }
+
+    public void RemoveGold(int price) {
+        _currentGold -= price;
+        if (_currentGold < 0) {
+            _currentGold = 0;
+        }
+        UpdateGoldText();
+    }
+
+    public void UpdateGoldText() {
+        _goldText.text = "Gold : " + GetCurrentGold();
     }
 }

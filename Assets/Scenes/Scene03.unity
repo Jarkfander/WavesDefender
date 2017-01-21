@@ -393,11 +393,11 @@ MonoBehaviour:
   panelBuilding: {fileID: 2120556779}
   _lightMonster: {fileID: 1064738029767524, guid: 094066f165fcf444ea534b4d4e4018e2,
     type: 2}
-  _soundMonster: {fileID: 1357799173897142, guid: e5dcf51d5abeaee4b9330503d96fc084,
+  _soundMonster: {fileID: 1511055625462364, guid: e5dcf51d5abeaee4b9330503d96fc084,
     type: 2}
-  _calmPhaseDuration: 5
-  _mobSpawnIntervalTime: 0.85
-  _mobsToSpawnNumber: 20
+  _calmPhaseDuration: 1
+  _mobSpawnIntervalTime: 0.25
+  _mobsToSpawnNumber: 150
 --- !u!4 &37458668
 Transform:
   m_ObjectHideFlags: 0

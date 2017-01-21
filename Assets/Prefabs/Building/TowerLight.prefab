@@ -34,6 +34,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633254263152050}
+  - component: {fileID: 114888830483761034}
+  - component: {fileID: 135243959030348982}
   m_Layer: 0
   m_Name: TowerLight
   m_TagString: Untagged
@@ -590,3 +592,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114888830483761034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208525562378454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b116de9f0e17f4f8734ea6bf6a5c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerDamages: 1
+  _towerElement: 2
+  _towerFireInterval: 0.1
+--- !u!135 &135243959030348982
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208525562378454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

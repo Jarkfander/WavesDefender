@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour {
             Transform mobSpawn = null;
 
             // a remplacer par un random
-            GameObject monsterToSpawn = _lightMonster;
+            GameObject monsterToSpawn = _soundMonster;
             MobMover spawnedMonsterMover = null;
 
             while (!_isACalmPhase)

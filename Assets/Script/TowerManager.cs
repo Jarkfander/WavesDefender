@@ -11,6 +11,8 @@ public enum BuildingType
 
 public class TowerManager : MonoBehaviour
 {
+    private SortedList<int, MobController> _monstersToKill;
+    private int _mobNumber = 0;
     private GameController _gameController;
 
     [SerializeField]
@@ -24,19 +26,47 @@ public class TowerManager : MonoBehaviour
 
     void Start()
     {
+        _monstersToKill = new SortedList<int, MobController>();
         _gameController = GameObject.Find("PlayerPlatform").GetComponent<GameController>();
     }
 
-    void OnTriggerStay(Collider other){
-
-        if (other.CompareTag("Monster"))
+    void Update()
+    {
+        if (_monstersToKill.Count > 0)
         {
-            MobController mob = other.GetComponent<MobController>();
-            if (Time.time > (_damageTime + _towerFireInterval))
+            foreach (MobController mob in _monstersToKill.Values)
             {
-                _damageTime = Time.time;
                 mob.TakeDamage(_towerDamages, _towerElement);
             }
         }
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            MobController mob = other.GetComponent<MobController>();
+            if (!_monstersToKill.ContainsValue(mob))
+            {
+                _monstersToKill.Add(_mobNumber, mob);
+                _mobNumber++;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            MobController mob = other.GetComponent<MobController>();
+            if (_monstersToKill.ContainsValue(mob))
+            {
+                _monstersToKill.RemoveAt(_monstersToKill.IndexOfValue(mob));
+            }
+        }
+    }
+
+
+
 }

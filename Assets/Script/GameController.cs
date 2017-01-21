@@ -63,8 +63,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void BuildBrassOnFlag(){
-
-	}
+        Flag.GetComponent<BuildFlagController>().build(1);
+        panelBuilding.SetActive(false);
+    }
 
 	public void BuildPrismOnFlag(){
 		Flag.GetComponent<BuildFlagController> ().build (0);

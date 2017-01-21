@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     //Game over
     private bool _isGameOver;
 
+	[SerializeField]
+	private GameObject gameoverScreen;
+
     //Gestion des monstres
     [SerializeField]
     private GameObject _lightMonster = null;
@@ -191,6 +194,8 @@ public class GameController : MonoBehaviour
         audioSource.Play();
         
         DestroyAllExistingEnnemies();
+
+		gameoverScreen.SetActive (true);
     }
 
     public void DestroyAllExistingEnnemies()
@@ -233,6 +238,6 @@ public class GameController : MonoBehaviour
     }
 
     public void UpdateGoldText() {
-        _goldText.text = "Gold : " + GetCurrentGold();
+        _goldText.text = GetCurrentGold() + " minerals";
     }
 }

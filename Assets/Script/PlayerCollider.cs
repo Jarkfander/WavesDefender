@@ -7,9 +7,15 @@ public class PlayerCollider : MonoBehaviour
 
     private GameController _gameController = null;
 
+	[SerializeField]
+	private UnityEngine.UI.Text livesText;
+
+	private int playerLife = 3;
+
     void Start()
     {
-        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+		_gameController = GameObject.Find("GameController").GetComponent<GameController>();
+		livesText.text = "Structure : " + playerLife;
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,7 +23,14 @@ public class PlayerCollider : MonoBehaviour
         if (other.tag == "Monster")
         {
             Destroy(other.gameObject);
-            _gameController.GameOver();
+
+			playerLife--;
+
+			livesText.text = "Structure : " + playerLife;
+
+			if (playerLife <= 0) {
+				_gameController.GameOver ();
+			}
         }
     }
 

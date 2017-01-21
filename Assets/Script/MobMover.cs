@@ -12,29 +12,23 @@ public class MobMover : MonoBehaviour
     [SerializeField]
     private float _speed;
 
-    private GameObject _mainTower;
-
 
 
     void Start()
     {
         _totalPathNodeNumberInMobSpawn = _mobSpawn.childCount;
-        _mainTower = GameObject.Find("PlayerPlatform");
         _rb = GetComponent<Rigidbody>();
-
-        if (_mainTower != null)
-        {
-            transform.rotation = Quaternion.LookRotation(_mainTower.transform.position - gameObject.transform.position);
-        }
         _currentPathNodeNumber = 0;
     }
 
     void Update(){
+        Debug.Log(_mobSpawn.name);
+        Debug.Log(_currentPathNodeNumber);
         if (_currentPathNodeNumber < _totalPathNodeNumberInMobSpawn) {
             Transform pathNodeToFollow = _mobSpawn.GetChild(_currentPathNodeNumber);
             if (pathNodeToFollow != null)
             {
-                transform.rotation = Quaternion.LookRotation(pathNodeToFollow.transform.position - gameObject.transform.localPosition);
+                transform.rotation = Quaternion.LookRotation(pathNodeToFollow.transform.position - gameObject.transform.position);
                 _rb.velocity = transform.forward * _speed;
                 if (Mathf.Abs(pathNodeToFollow.position.x - gameObject.transform.position.x) < _pathNodeReachDelta
                         && Mathf.Abs(pathNodeToFollow.position.y - gameObject.transform.position.y) < _pathNodeReachDelta
@@ -44,7 +38,6 @@ public class MobMover : MonoBehaviour
                 }
             }
         }
-        
     }
 
     public void InitializeMobSpawn(Transform mobSpawn) {

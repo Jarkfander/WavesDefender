@@ -6,14 +6,14 @@ public class MobMover : MonoBehaviour
     [SerializeField]
     private float _speed;
 
-    Rigidbody _rb= null;
+    Rigidbody2D _rb= null;
 
     private GameObject _mainTower;
 
     void Start()
     {
         _mainTower = GameObject.Find("VoidTower");
-        _rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody2D>();
 
         if (_mainTower != null)
         {
@@ -24,6 +24,7 @@ public class MobMover : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.LookRotation(_mainTower.transform.position - gameObject.transform.localPosition);
-        transform.position = transform.position + transform.forward*_speed;
+        //transform.position = transform.position + transform.forward*_speed;
+        _rb.velocity = transform.forward * _speed;
     }
 }

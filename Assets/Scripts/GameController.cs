@@ -40,7 +40,8 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Transform mobSpawnGroupDeLaZone = null;
-        SortedList<int, Transform> mobSpawns = null;
+        SortedList<int, Transform> mobSpawns = new SortedList<int, Transform>();
+        int spawnCount = 0;
 
         //Pour chaque cadran on met à jour la liste des mobspawns actifs
         for (int numeroCadran = 1; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
@@ -59,7 +60,9 @@ public class GameController : MonoBehaviour {
                             for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++)
                             {
                                 //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
-                                mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone));
+                                Transform spawn = mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone);
+                                mobSpawns.Add(spawnCount, spawn);
+                                spawnCount++;
                             }
                         }
                         else
@@ -162,5 +165,11 @@ public class GameController : MonoBehaviour {
                 Debug.Log("Erreur : cadran" + numeroCadran+" introuvable");
             }
         }
+    }
+
+
+
+    public GameState getGameState() {
+        return _gameState;
     }
 }

@@ -5,10 +5,21 @@ using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject _buildingPanel;
-	public EventSystem es;
+	private int _NOMBRE_SPAWNS_PAR_ZONE = 5;
+	private int _NOMBRE_ZONES_PAR_CADRAN;
+	private int _NOMBRE_DE_CADRANS;
 
 	private GameState _gameState;
+
+	private GameObject _cadran;
+
+	private GameObject[] _mobSpawns;
+
+	//int = numero de cadran
+	//sortedList : int = numero de zone -- GameObject = mobSpawns pour la zone
+	private SortedList<int,SortedList<int, GameObject>> _mobSpawnsParCadran = null;
+	public GameObject _buildingPanel;
+	public EventSystem es;
 
 	private int _selectedSpotCadran;
 	private int _selectedSpotLigne;
@@ -16,15 +27,48 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_gameState = new GameState (5, 3);
 		_selectedSpotCadran = -1;
 		_selectedSpotLigne = -1;
 		_selectedSpotEmplacement = -1;
 		_buildingPanel.SetActive (false);
+		_gameState = new GameState(5,3);
+		_NOMBRE_DE_CADRANS = _gameState.getNbCadran();
+		_NOMBRE_ZONES_PAR_CADRAN = _gameState.getNbZone();
+		initializeMobSpawns();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		Transform mobSpawnGroupDeLaZone = null;
+		SortedList<int, GameObject> mobSpawns = null;
+
+		//Pour chaque cadran on met à jour la liste des mobspawns actifs
+		for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
+		{
+			_cadran = GameObject.Find("Cadran" + numeroCadran);
+
+			//pour chaque zone on remplit une liste temporaire de mobSpawns
+			for (int numeroZone = _NOMBRE_ZONES_PAR_CADRAN; numeroZone > 0; numeroZone--){
+				if (!_gameState.isZoneActive(numeroCadran, numeroZone-1)) {
+					mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(numeroZone-1).GetChild(1);
+
+					for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++){
+						//On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
+						mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+					}
+				}     
+			}
+			//On supprime la liste de MobSpawns active pour le cadran en cours de traitement
+			_mobSpawnsParCadran.Remove(numeroCadran);
+
+			//on remet la liste globale de mobSpawns à jour avec la liste temporaire pour le cadran en cours de traitement
+			_mobSpawnsParCadran.Add(numeroCadran, mobSpawns);
+
+		}
+
+		//Check click selection building spot
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
@@ -71,4 +115,26 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("Oui messire");
 	}
 
+    /// <summary>
+    /// Cette méthode initialise la liste des mobSpawns actifs pour tous les cadrans
+    /// </summary>
+    private void initializeMobSpawns() {
+        Transform mobSpawnGroupDeLaZone = null;
+        SortedList<int, GameObject> mobSpawns = null;
+        _mobSpawnsParCadran = new SortedList<int, SortedList<int, GameObject>>();
+
+        //Pour chaque cadran on veut set les mobspawns actifs
+        for (int numeroCadran = 0; numeroCadran < _NOMBRE_DE_CADRANS; ++numeroCadran)
+        {
+            _cadran = GameObject.Find("Cadran" + numeroCadran);
+            mobSpawnGroupDeLaZone = _cadran.GetComponent<Transform>().GetChild(_NOMBRE_ZONES_PAR_CADRAN-1).GetChild(1);
+
+            for (int numeroSpawnZone = 0; numeroSpawnZone < _NOMBRE_SPAWNS_PAR_ZONE; numeroSpawnZone++){
+                //On ajoute dans une liste temporaire tous les mobspawns pour une zone en particulier
+                mobSpawns.Add(numeroSpawnZone, mobSpawnGroupDeLaZone.GetChild(numeroSpawnZone).GetComponent<GameObject>());
+            }
+            //on set la liste globale de mobSpawns avec la liste temporaire pour le cadran en cours de traitement
+            _mobSpawnsParCadran.Add(numeroCadran,mobSpawns);
+        }
+    }
 }

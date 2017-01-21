@@ -21,15 +21,11 @@ public class GameController : MonoBehaviour {
 	public GameObject _buildingPanel;
 	public EventSystem es;
 
-	private int _selectedSpotCadran;
-	private int _selectedSpotLigne;
-	private int _selectedSpotEmplacement;
+	private BuildingSpot _selectedSpot;
 
 	// Use this for initialization
 	void Start () {
-		_selectedSpotCadran = -1;
-		_selectedSpotLigne = -1;
-		_selectedSpotEmplacement = -1;
+		_selectedSpot = null;
 		_buildingPanel.SetActive (false);
 		_gameState = new GameState(5,4);
 		_NOMBRE_DE_CADRANS = _gameState.getNbCadran();
@@ -91,9 +87,7 @@ public class GameController : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit)) {
 				BuildingSpot bs = hit.collider.GetComponent<BuildingSpot> ();
 				if (bs != null) {
-					_selectedSpotCadran = bs.cadran;
-					_selectedSpotLigne = bs.ligne;
-					_selectedSpotEmplacement = bs.ligne;
+					_selectedSpot = bs;
 
 					_buildingPanel.SetActive (true);
 				} 
@@ -106,7 +100,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void BuildTheBuildingThatIsSelected(BuildingType b){
-		_gameState.setBuilding (_selectedSpotCadran, _selectedSpotLigne, _selectedSpotEmplacement, b);
+		_gameState.setBuilding (_selectedSpot.cadran, _selectedSpot.ligne, _selectedSpot.emplacement, b);
 		//rebuild les buildings lololol
 	}
 

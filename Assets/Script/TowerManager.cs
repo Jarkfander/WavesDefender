@@ -24,6 +24,10 @@ public class TowerManager : MonoBehaviour
     private float _towerFireInterval;
     private float _damageTime;
 
+    //Economie
+    [SerializeField]
+    private int _towerPrice = 0;
+
     void Start()
     {
         _monstersToKill = new SortedList<int, MobController>();
@@ -67,6 +71,7 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-
-
+    public int GetTowerPrice() {
+        return _towerPrice;
+    }
 }

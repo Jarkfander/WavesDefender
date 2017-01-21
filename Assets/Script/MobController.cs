@@ -14,6 +14,17 @@ public class MobController : MonoBehaviour {
     [SerializeField]
     private Element _element;
 
+    [SerializeField]
+    private int _monsterPrice = 0;
+    [SerializeField]
+    private int _goldGivenByMonsterWhenHeDies = 0;
+
+    private GameController _gameController;
+
+    void Start() {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +33,8 @@ public class MobController : MonoBehaviour {
         }
     }
 
-    private void Die() {
+    public void Die() {
+        _gameController.AddGold(_goldGivenByMonsterWhenHeDies);
         Destroy(gameObject);
     }
 

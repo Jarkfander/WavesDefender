@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoints: 20
   _element: 1
+  _monsterPrice: 0
+  _goldGivenByMonsterWhenHeDies: 3
 --- !u!114 &114756791371316020
 MonoBehaviour:
   m_ObjectHideFlags: 1

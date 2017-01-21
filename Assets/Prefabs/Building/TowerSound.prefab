@@ -582,6 +582,7 @@ MonoBehaviour:
   _towerDamages: 1
   _towerElement: 1
   _towerFireInterval: 0.1
+  _towerPrice: 10
 --- !u!135 &135028492696207026
 SphereCollider:
   m_ObjectHideFlags: 1

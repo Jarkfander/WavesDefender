@@ -18,10 +18,20 @@ public class ZoneManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if (other.CompareTag("Monster")) {
-            if (ZoneNumber != 3 && ZoneNumber > 0) {
-                Debug.Log("Blocking zone " + ZoneNumber + " in cadran " + CadranNumber);
-                _gameController.getGameState().captureZone(CadranNumber, ZoneNumber-1);
+            if (ZoneNumber != (_gameController.getGameState().getNbZone()-1) && ZoneNumber >= 0) {
+                Debug.Log("Blocking zone " + (ZoneNumber+1) + " in cadran " + CadranNumber);
+                _gameController.getGameState().captureZone(CadranNumber, ZoneNumber+1);
             }
         }
+    }
+
+    public int GetCadranNumber()
+    {
+        return CadranNumber;
+    }
+
+    public int GetZoneNumber()
+    {
+        return ZoneNumber;
     }
 }

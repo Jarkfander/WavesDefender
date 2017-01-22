@@ -15,16 +15,24 @@ public class MobController : MonoBehaviour {
     [SerializeField]
     private Element _element;
 
+	[SerializeField]
+	private int goldValue = 0;
+
+	private GameController _gameController;
+
     // Update is called once per frame
     void Update()
     {
         if (_healthPoints <= 0){
             Die();
         }
+
+		_gameController = GameObject.Find ("GameController").GetComponent <GameController> ();
     }
 
     private void Die() {
 
+		_gameController.AddGold (goldValue);
         Destroy(gameObject);
     }
 

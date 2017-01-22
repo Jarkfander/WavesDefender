@@ -44,7 +44,7 @@ public class TowerManager : MonoBehaviour
         if (_monstersToKill.Count > 0)
         {
             if (Time.time > (_lastPlayedAudio+_audioDelay)) {
-                GetComponent<AudioSource>().Play();
+//                GetComponent<AudioSource>().Play();
                 _lastPlayedAudio = Time.time;
             }
             

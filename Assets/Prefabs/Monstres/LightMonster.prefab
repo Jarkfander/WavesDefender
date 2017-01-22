@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoints: 15
   _element: 0
+  goldValue: 0
+  _deathAnim: {fileID: 1392198726058342, guid: 2d1fa0ad32f20ef4badd8c5831197577, type: 2}
 --- !u!114 &114397180076974464
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,8 @@ public class MobController : MonoBehaviour {
 	[SerializeField]
 	private int goldValue = 0;
 
+	public GameObject _deathAnim;
+
 	private GameController _gameController;
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class MobController : MonoBehaviour {
     private void Die() {
 
 		_gameController.AddGold (goldValue);
+		Instantiate (_deathAnim,this.transform.position, this.transform.rotation);
         Destroy(gameObject);
     }
 

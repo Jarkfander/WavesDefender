@@ -52,6 +52,9 @@ public class GameController : MonoBehaviour
     private float _mobSpawnIntervalTime = 0.85f;
     [SerializeField]
     private float _mobsToSpawnNumber = 20;
+    private GameObject spawnedMonster = null;
+    private MobMover spawnedMonsterMover = null;
+
 
     //Audio
     [SerializeField]
@@ -59,6 +62,7 @@ public class GameController : MonoBehaviour
 
 	public Button leftButton;
 	public Button rightButton;
+
 
     // Use this for initialization
     void Start()
@@ -109,7 +113,6 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown ("Rotate Counterclock")) {
 			RotateBoardAnticlockwise ();
 		}
-
     }
 
 
@@ -155,12 +158,11 @@ public class GameController : MonoBehaviour
             }
 
             int mobsSpawnedNumber = 0;
-            Transform mobSpawn = null;
+            GameObject mobSpawn = null;
 
             // a remplacer par un random
             GameObject monsterToSpawn = null;
 
-            MobMover spawnedMonsterMover = null;
 
             while (!_isACalmPhase)
             {
@@ -173,16 +175,20 @@ public class GameController : MonoBehaviour
 				} else if (mobElement.Equals (Element.Void)) {
 					monsterToSpawn = _voidMonster;
 				}
+                //On set la logique de mobSpawn à moment là
                 mobSpawn = RandomMobSpawn();
+
+                PathNodeReached pNR = mobSpawn.GetComponent<PathNodeReached>();
+                Transform positionToSpawn = pNR._pathNode;
+
                 if (mobsSpawnedNumber < _mobsToSpawnNumber && !_isGameOver)
                 {
-                    GameObject spawnedMonster = null;
+                    
                     if (monsterToSpawn != null)
                     {
-                        spawnedMonster = (GameObject)Instantiate(monsterToSpawn, mobSpawn.transform.position, mobSpawn.transform.rotation);
+                        spawnedMonster = (GameObject)Instantiate(monsterToSpawn, positionToSpawn.transform.position, positionToSpawn.transform.rotation);
                         spawnedMonsterMover = spawnedMonster.GetComponent<MobMover>();
                         spawnedMonsterMover.InitializeMobSpawn(mobSpawn);
-
                     }
                     mobsSpawnedNumber++;
                     yield return new WaitForSeconds(_mobSpawnIntervalTime);
@@ -196,9 +202,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private Transform RandomMobSpawn()
+    private GameObject RandomMobSpawn()
     {
-        return GameObject.Find("MobSpawn" + (Random.Range(0, 8) + 1)).transform;
+        GameObject mobspawn = GameObject.Find("MobSpawn" + (Random.Range(0, 8) + 1));
+        return mobspawn;
     }
 
     public void GameOver()

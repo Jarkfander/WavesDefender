@@ -6,7 +6,7 @@ public class BigTowerController : MonoBehaviour {
 
 	private Vector3 target;
 	private LineRenderer _lr;
-	private Vector3 shotspawn;
+	public Vector3 shotspawn;
 
 	public float fireDuration = 1.0f;
 	public float fireRate = 5.0f;
@@ -21,7 +21,7 @@ public class BigTowerController : MonoBehaviour {
 	void Update () {
 		if (lastshot + fireDuration > Time.time) {
 			_lr.SetPosition (0, shotspawn);
-			_lr.SetPosition (1, target);
+			_lr.SetPosition (1, new Vector3(target.x, target.y -0.5f, target.z));
 
 			_lr.enabled = true;
 		} else {
@@ -32,8 +32,10 @@ public class BigTowerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.CompareTag("Monster")){
 			if (lastshot + fireRate < Time.time) {
+				Debug.Log ("HIT");
 				other.GetComponent<MobController> ().TakeDamage (1337, BuildingType.NONE);
 				target = other.transform.position;
+				lastshot = Time.time;
 			}
 		}
 	}

@@ -5,10 +5,11 @@ using UnityEngine;
 public class BuildFlagController : MonoBehaviour {
 
 	public GameObject[] Buildings;
+	public GameObject flagMesh;
 
 	public void build(int buildingNumber){
 		Buildings [buildingNumber].SetActive(true);
-		this.GetComponent<MeshRenderer> ().enabled = false;
+		flagMesh.SetActive (false);
 		this.GetComponent<Collider> ().enabled = false;
 	}
 }

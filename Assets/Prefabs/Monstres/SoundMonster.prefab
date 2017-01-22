@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPoints: 30
-  _element: 0
+  _element: 1
   goldValue: 2
 --- !u!136 &136175256826639918
 CapsuleCollider:

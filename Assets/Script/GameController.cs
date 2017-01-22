@@ -214,6 +214,7 @@ public class GameController : MonoBehaviour
         _isGameOver = true;
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.clip = _gameOverAudio;
+		audioSource.loop = false;
         audioSource.Play();
         
         DestroyAllExistingEnnemies();

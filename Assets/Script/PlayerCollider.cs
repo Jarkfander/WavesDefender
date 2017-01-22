@@ -25,7 +25,8 @@ public class PlayerCollider : MonoBehaviour
 			if(other.GetComponent<MobController>().getMonsterElement()== Element.Void){
 				playerLife++;
 			}else{
-			playerLife--;
+				playerLife--;
+				GetComponent<AudioSource>().Play ();
 			}
 
 			Destroy(other.gameObject);

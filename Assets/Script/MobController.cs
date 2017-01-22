@@ -38,8 +38,8 @@ public class MobController : MonoBehaviour {
 
     public void TakeDamage(int damages,BuildingType damageElement) {
 
-        if (damageElement.Equals(BuildingType.BRASS) && _element.Equals(Element.Sound)
-                || damageElement.Equals(BuildingType.PRISM) && _element.Equals(Element.Light))
+		if (damageElement.Equals(BuildingType.BRASS) && _element.Equals(Element.Light)
+			|| damageElement.Equals(BuildingType.PRISM) && _element.Equals(Element.Sound))
         {
             ReinforceMonster(damages);
             return;

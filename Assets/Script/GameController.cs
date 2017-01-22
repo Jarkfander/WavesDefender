@@ -65,6 +65,9 @@ public class GameController : MonoBehaviour
 	public Button leftButton;
 	public Button rightButton;
 
+    private int _minutes;
+    private int _numberOfMinutesScaled;
+
 
     // Use this for initialization
     void Start()
@@ -74,6 +77,8 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
         _currentGold = _startingGold;
         UpdateGoldText();
+        _minutes = 0;
+        _numberOfMinutesScaled = 0;
     }
 
     // Update is called once per frame
@@ -119,7 +124,19 @@ public class GameController : MonoBehaviour
 		timeSurvived = Time.timeSinceLevelLoad;
     }
 
-
+    void FixedUpdate()
+    {
+        _minutes = (int)(Time.time / 30.0f);
+        if ((_minutes - _numberOfMinutesScaled) >= 1)
+        {
+            _numberOfMinutesScaled++;
+            Debug.Log(_numberOfMinutesScaled);
+            if (_mobSpawnIntervalTime - 0.1f > 0.2f) ;
+            {
+                _mobSpawnIntervalTime -= 0.1f;
+            }
+        }
+    }
 
     public void BuildBrassOnFlag()
     {

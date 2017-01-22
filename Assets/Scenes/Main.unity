@@ -235,6 +235,8 @@ MonoBehaviour:
   _gameOverAudio: {fileID: 8300000, guid: a6630e6d3bf2c06489f3c9e2fd77dac6, type: 3}
   leftButton: {fileID: 1998519721}
   rightButton: {fileID: 895463967}
+  _secondLessByScale: 0.1
+  _scalingFrequency: 5
 --- !u!4 &37458668
 Transform:
   m_ObjectHideFlags: 0

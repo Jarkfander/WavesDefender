@@ -54,8 +54,6 @@ public class GameController : MonoBehaviour
     //Calibrage du spawn de monstres
     [SerializeField]
     private float _mobSpawnIntervalTime = 0.85f;
-    [SerializeField]
-    private float _mobsToSpawnNumber = 20;
     private GameObject spawnedMonster = null;
     private MobMover spawnedMonsterMover = null;
 
@@ -162,8 +160,6 @@ public class GameController : MonoBehaviour
                 _isACalmPhase = false;
                 yield return new WaitForSeconds(_calmPhaseDuration);
             }
-
-            int mobsSpawnedNumber = 0;
             GameObject mobSpawn = null;
 
             // a remplacer par un random
@@ -187,7 +183,7 @@ public class GameController : MonoBehaviour
                 PathNodeReached pNR = mobSpawn.GetComponent<PathNodeReached>();
                 Transform positionToSpawn = pNR._pathNode;
 
-                if (mobsSpawnedNumber < _mobsToSpawnNumber && !_isGameOver)
+                if (!_isGameOver)
                 {
                     
                     if (monsterToSpawn != null)
@@ -196,7 +192,6 @@ public class GameController : MonoBehaviour
                         spawnedMonsterMover = spawnedMonster.GetComponent<MobMover>();
                         spawnedMonsterMover.InitializeMobSpawn(mobSpawn);
                     }
-                    mobsSpawnedNumber++;
                     yield return new WaitForSeconds(_mobSpawnIntervalTime);
                 }
                 else

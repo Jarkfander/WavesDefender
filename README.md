@@ -1,7 +1,9 @@
 # WavesDefender
 // La Team Gamagora impose son style pour la GGJ 2017
 
+
 [English version at the bottom ! :)]
+
 
 Blackest Star :
 
@@ -26,26 +28,10 @@ La monnaie du jeu sert à acheter de nouvelles tours pour mieux se défendre.
 
 Le score est là pour montrer la performance du joueur et lui donner un indice de comparaison pour la progression de son niveau.
 
-__
-Spilled Coffee Project Team, Lyon, FRANCE, for Global Game Jam 2017
 
-Game/Level Designers : 
-Victor Sorba (DU Level Design Gamagora 2016-2017)
-Valentin Hermeline (DU Level Design Gamagora 2016-2017)
-Antonin Rontard (DU Level Design Gamagora 2016-2017)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-2D/3D Graphist :
-Juline Camps (DU Infographie Gamagora 2016-2017)
-
-Developers : 
-Florent Dupont (DU Level Design Gamagora 2016-2017)
-Florian Bonnafoux (DU Level Design Gamagora 2016-2017)
-
-Sound Designer :
-Maya Steinberg (Freelance)
-__
-
-
+Blackest Star :
 
 Blackest Star is a game which is inspired by the classical Tower Defence Games but with some features that makes it an original project.
 

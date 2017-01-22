@@ -67,10 +67,6 @@ public class GameController : MonoBehaviour
 
     private int _minutes;
     private int _numberOfMinutesScaled;
-    [SerializeField]
-    private float _secondLessByScale;
-    [SerializeField]
-    private float _scalingFrequency;
 
 
     // Use this for initialization
@@ -130,14 +126,14 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        _minutes = (int)(Time.time /_scalingFrequency);
+        _minutes = (int)(Time.time / 30.0f);
         if ((_minutes - _numberOfMinutesScaled) >= 1)
         {
             _numberOfMinutesScaled++;
             Debug.Log(_numberOfMinutesScaled);
-            if (_mobSpawnIntervalTime - _secondLessByScale > 0.2f);
+            if (_mobSpawnIntervalTime - 0.1f > 0.2f) ;
             {
-                _mobSpawnIntervalTime -= _secondLessByScale;
+                _mobSpawnIntervalTime -= 0.1f;
             }
         }
     }

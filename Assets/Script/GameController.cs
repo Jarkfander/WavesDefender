@@ -30,20 +30,20 @@ public class GameController : MonoBehaviour
     //Game over
     private bool _isGameOver;
 
-	[SerializeField]
-	private GameObject gameoverScreen;
-	[SerializeField]
-	private Text gameoverText;
+    [SerializeField]
+    private GameObject gameoverScreen;
+    [SerializeField]
+    private Text gameoverText;
 
-	private float timeSurvived;
+    private float timeSurvived;
 
     //Gestion des monstres
     [SerializeField]
     private GameObject _lightMonster = null;
     [SerializeField]
     private GameObject _soundMonster = null;
-	[SerializeField]
-	private GameObject _voidMonster = null;
+    [SerializeField]
+    private GameObject _voidMonster = null;
 
 
     //Gestion des phases de jeu (calme ou spawning)
@@ -62,11 +62,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private AudioClip _gameOverAudio = null;
 
-	public Button leftButton;
-	public Button rightButton;
+    public Button leftButton;
+    public Button rightButton;
 
     private int _minutes;
     private int _numberOfMinutesScaled;
+    [SerializeField]
+    private float _secondLessByScale = 0.1f;
+    [SerializeField]
+    private float _scalingFrequency = 30.0f;
 
 
     // Use this for initialization
@@ -84,9 +88,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Mathf.Abs (targetRotationY - _Board.transform.rotation.eulerAngles.y) > 0.02) {
-			_Board.transform.rotation = Quaternion.Lerp (_Board.transform.rotation, Quaternion.Euler (0.0f, targetRotationY, 0.0f), Time.deltaTime * speed);
-		} /*else {
+        if (Mathf.Abs(targetRotationY - _Board.transform.rotation.eulerAngles.y) > 0.02)
+        {
+            _Board.transform.rotation = Quaternion.Lerp(_Board.transform.rotation, Quaternion.Euler(0.0f, targetRotationY, 0.0f), Time.deltaTime * speed);
+        } /*else {
 			leftButton.interactable = true;
 			rightButton.interactable = true;
 
@@ -113,27 +118,29 @@ public class GameController : MonoBehaviour
             panelBuilding.SetActive(false);
         }
 
-		if (Input.GetButtonDown ("Rotate Clockwise")) {
-			RotateBoardClockwise ();
-		}
+        if (Input.GetButtonDown("Rotate Clockwise"))
+        {
+            RotateBoardClockwise();
+        }
 
-		if (Input.GetButtonDown ("Rotate Counterclock")) {
-			RotateBoardAnticlockwise ();
-		}
+        if (Input.GetButtonDown("Rotate Counterclock"))
+        {
+            RotateBoardAnticlockwise();
+        }
 
-		timeSurvived = Time.timeSinceLevelLoad;
+        timeSurvived = Time.timeSinceLevelLoad;
     }
 
     void FixedUpdate()
     {
-        _minutes = (int)(Time.time / 30.0f);
+        _minutes = (int)(Time.time / _scalingFrequency);
         if ((_minutes - _numberOfMinutesScaled) >= 1)
         {
             _numberOfMinutesScaled++;
             Debug.Log(_numberOfMinutesScaled);
-            if (_mobSpawnIntervalTime - 0.1f > 0.2f) ;
+            if (_mobSpawnIntervalTime - _secondLessByScale > 0.2f) ;
             {
-                _mobSpawnIntervalTime -= 0.1f;
+                _mobSpawnIntervalTime -= _secondLessByScale;
             }
         }
     }
@@ -147,10 +154,11 @@ public class GameController : MonoBehaviour
             panelBuilding.SetActive(false);
             RemoveGold(price);
         }
-        else {
+        else
+        {
             Debug.Log("Not enough gold to build a Brass Tower");
         }
-        
+
     }
 
     public void BuildPrismOnFlag()
@@ -185,15 +193,20 @@ public class GameController : MonoBehaviour
 
             while (!_isACalmPhase)
             {
-				int mobElementPicker = (int)(Random.Range (0, 7)) / 3;
-				Element mobElement = (Element)mobElementPicker;
-				if (mobElement.Equals (Element.Light)) {
-					monsterToSpawn = _lightMonster;
-				} else if (mobElement.Equals (Element.Sound)) {
-					monsterToSpawn = _soundMonster;
-				} else if (mobElement.Equals (Element.Void)) {
-					monsterToSpawn = _voidMonster;
-				}
+                int mobElementPicker = (int)(Random.Range(0, 7)) / 3;
+                Element mobElement = (Element)mobElementPicker;
+                if (mobElement.Equals(Element.Light))
+                {
+                    monsterToSpawn = _lightMonster;
+                }
+                else if (mobElement.Equals(Element.Sound))
+                {
+                    monsterToSpawn = _soundMonster;
+                }
+                else if (mobElement.Equals(Element.Void))
+                {
+                    monsterToSpawn = _voidMonster;
+                }
                 //On set la logique de mobSpawn à moment là
                 mobSpawn = RandomMobSpawn();
 
@@ -202,7 +215,7 @@ public class GameController : MonoBehaviour
 
                 if (!_isGameOver)
                 {
-                    
+
                     if (monsterToSpawn != null)
                     {
                         spawnedMonster = (GameObject)Instantiate(monsterToSpawn, positionToSpawn.transform.position, positionToSpawn.transform.rotation);
@@ -231,13 +244,13 @@ public class GameController : MonoBehaviour
         _isGameOver = true;
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.clip = _gameOverAudio;
-		audioSource.loop = false;
+        audioSource.loop = false;
         audioSource.Play();
-        
+
         DestroyAllExistingEnnemies();
 
-		gameoverScreen.SetActive (true);
-		gameoverText.text = "You survived " + (int)timeSurvived + " seconds !";
+        gameoverScreen.SetActive(true);
+        gameoverText.text = "You survived " + (int)timeSurvived + " seconds !";
     }
 
     public void DestroyAllExistingEnnemies()
@@ -250,40 +263,45 @@ public class GameController : MonoBehaviour
 
     public void RotateBoardClockwise()
     {
-		//if (rightButton.interactable) {
-			targetRotationY = targetRotationY + 90;
-			//leftButton.interactable = false;
-		//	rightButton.interactable = false;
-		//}
+        //if (rightButton.interactable) {
+        targetRotationY = targetRotationY + 90;
+        //leftButton.interactable = false;
+        //	rightButton.interactable = false;
+        //}
     }
 
     public void RotateBoardAnticlockwise()
     {
-		//if (leftButton.interactable) {
-			targetRotationY = targetRotationY - 90;
-			//leftButton.interactable = false;
-			//rightButton.interactable = false;
-		//}
+        //if (leftButton.interactable) {
+        targetRotationY = targetRotationY - 90;
+        //leftButton.interactable = false;
+        //rightButton.interactable = false;
+        //}
     }
 
-    public int GetCurrentGold() {
+    public int GetCurrentGold()
+    {
         return _currentGold;
     }
 
-    public void AddGold(int gold) {
+    public void AddGold(int gold)
+    {
         _currentGold += gold;
         UpdateGoldText();
     }
 
-    public void RemoveGold(int price) {
+    public void RemoveGold(int price)
+    {
         _currentGold -= price;
-        if (_currentGold < 0) {
+        if (_currentGold < 0)
+        {
             _currentGold = 0;
         }
         UpdateGoldText();
     }
 
-    public void UpdateGoldText() {
+    public void UpdateGoldText()
+    {
         _goldText.text = GetCurrentGold() + " minerals";
     }
 }

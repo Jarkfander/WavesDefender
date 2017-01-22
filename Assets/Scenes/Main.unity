@@ -235,6 +235,8 @@ MonoBehaviour:
   _gameOverAudio: {fileID: 8300000, guid: a6630e6d3bf2c06489f3c9e2fd77dac6, type: 3}
   leftButton: {fileID: 1998519721}
   rightButton: {fileID: 895463967}
+  _secondLessByScale: 0.1
+  _scalingFrequency: 30
 --- !u!4 &37458668
 Transform:
   m_ObjectHideFlags: 0
@@ -6010,6 +6012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 1873775175}
+  gainLifeSound: {fileID: 8300000, guid: 52de2a03e6b82af4f971d281fe38e539, type: 3}
+  loseLifeSound: {fileID: 8300000, guid: afbc508536db95c4eb51aa2df7020d91, type: 3}
 --- !u!23 &1003099064
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6084,7 +6088,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: afbc508536db95c4eb51aa2df7020d91, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -164,6 +164,7 @@ MonoBehaviour:
   _healthPoints: 50
   _element: 2
   goldValue: 0
+  _deathAnim: {fileID: 1049302164969790, guid: f56cbacc2f3096d459059d64dd8762f6, type: 2}
 --- !u!114 &114506614642505052
 MonoBehaviour:
   m_ObjectHideFlags: 1

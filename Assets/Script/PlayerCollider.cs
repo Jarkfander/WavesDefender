@@ -10,12 +10,21 @@ public class PlayerCollider : MonoBehaviour
 	[SerializeField]
 	private UnityEngine.UI.Text livesText;
 
+	[SerializeField]
+	private AudioClip gainLifeSound;
+
+	[SerializeField]
+	private AudioClip loseLifeSound;
+
 	private int playerLife = 3;
+
+	AudioSource audiosource;
 
     void Start()
     {
 		_gameController = GameObject.Find("GameController").GetComponent<GameController>();
 		livesText.text = "Structure : " + playerLife;
+		audiosource = GetComponent<AudioSource> ();
     }
 
     void OnTriggerEnter(Collider other)
@@ -24,9 +33,14 @@ public class PlayerCollider : MonoBehaviour
         { 
 			if(other.GetComponent<MobController>().getMonsterElement()== Element.Void){
 				playerLife++;
+				audiosource.clip = gainLifeSound;
+				audiosource.Play();
+
+
 			}else{
 				playerLife--;
-				GetComponent<AudioSource>().Play ();
+				audiosource.clip = loseLifeSound;
+				audiosource.Play();
 			}
 
 			Destroy(other.gameObject);

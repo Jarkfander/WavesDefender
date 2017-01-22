@@ -9011,8 +9011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749ef7be7f4db0547ac7379bee915c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotspawn: {x: 0, y: 0, z: 0}
-  fireDuration: 1
+  shotspawn: {x: 0, y: 1.4, z: 0}
+  fireDuration: 0.15
   fireRate: 5
 --- !u!120 &1622192161
 LineRenderer:

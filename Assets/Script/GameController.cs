@@ -164,7 +164,8 @@ public class GameController : MonoBehaviour
 
             while (!_isACalmPhase)
             {
-                Element mobElement = (Element)Random.Range(0, 3);
+				int mobElementPicker = (int)(Random.Range (0, 7)) / 3;
+				Element mobElement = (Element)mobElementPicker;
 				if (mobElement.Equals (Element.Light)) {
 					monsterToSpawn = _lightMonster;
 				} else if (mobElement.Equals (Element.Sound)) {

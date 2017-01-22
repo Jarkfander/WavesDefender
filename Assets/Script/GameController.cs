@@ -32,6 +32,10 @@ public class GameController : MonoBehaviour
 
 	[SerializeField]
 	private GameObject gameoverScreen;
+	[SerializeField]
+	private Text gameoverText;
+
+	private float timeSurvived;
 
     //Gestion des monstres
     [SerializeField]
@@ -113,6 +117,8 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown ("Rotate Counterclock")) {
 			RotateBoardAnticlockwise ();
 		}
+
+		timeSurvived = Time.timeSinceLevelLoad;
     }
 
 
@@ -218,6 +224,7 @@ public class GameController : MonoBehaviour
         DestroyAllExistingEnnemies();
 
 		gameoverScreen.SetActive (true);
+		gameoverText.text = "You survived " + (int)timeSurvived + " seconds !";
     }
 
     public void DestroyAllExistingEnnemies()

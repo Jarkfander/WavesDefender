@@ -1,134 +1,15 @@
 fileFormatVersion: 2
-guid: 10bbf1966fcceba4e8b531bf5c07f48d
-timeCreated: 1485021620
+guid: 8e50bf69e9166f84f86643987c6870f4
+timeCreated: 1485083087
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Golem
-    100002: //RootNode
-    100004: pCube1
-    100006: pCube10
-    100008: pCube11
-    100010: pCube12
-    100012: pCube13
-    100014: pCube14
-    100016: pCube15
-    100018: pCube16
-    100020: pCube17
-    100022: pCube18
-    100024: pCube19
-    100026: pCube20
-    100028: pCube21
-    100030: pCube22
-    100032: pCube23
-    100034: pCube24
-    100036: pCube25
-    100038: pCube26
-    100040: pCube27
-    100042: pCube28
-    100044: pCube4
-    100046: pCube5
-    100048: pCube55
-    100050: pCube56
-    100052: pCube57
-    100054: pCube6
-    100056: pCube7
-    100058: pCube8
-    100060: pCube9
-    100062: transform34
-    100064: transform35
-    100066: transform36
-    100068: transform37
-    100070: transform38
-    100072: transform39
-    100074: transform40
-    100076: transform41
-    100078: transform42
-    100080: transform43
-    100082: transform44
-    100084: transform45
-    100086: transform46
-    100088: transform47
-    100090: transform48
-    100092: transform49
-    100094: transform50
-    100096: transform51
-    100098: transform52
-    100100: transform53
-    100102: transform54
-    100104: transform55
-    100106: transform56
-    100108: transform57
-    100110: transform58
-    100112: transform59
-    100114: transform60
-    100116: transform61
-    100118: transform62
-    400000: Golem
-    400002: //RootNode
-    400004: pCube1
-    400006: pCube10
-    400008: pCube11
-    400010: pCube12
-    400012: pCube13
-    400014: pCube14
-    400016: pCube15
-    400018: pCube16
-    400020: pCube17
-    400022: pCube18
-    400024: pCube19
-    400026: pCube20
-    400028: pCube21
-    400030: pCube22
-    400032: pCube23
-    400034: pCube24
-    400036: pCube25
-    400038: pCube26
-    400040: pCube27
-    400042: pCube28
-    400044: pCube4
-    400046: pCube5
-    400048: pCube55
-    400050: pCube56
-    400052: pCube57
-    400054: pCube6
-    400056: pCube7
-    400058: pCube8
-    400060: pCube9
-    400062: transform34
-    400064: transform35
-    400066: transform36
-    400068: transform37
-    400070: transform38
-    400072: transform39
-    400074: transform40
-    400076: transform41
-    400078: transform42
-    400080: transform43
-    400082: transform44
-    400084: transform45
-    400086: transform46
-    400088: transform47
-    400090: transform48
-    400092: transform49
-    400094: transform50
-    400096: transform51
-    400098: transform52
-    400100: transform53
-    400102: transform54
-    400104: transform55
-    400106: transform56
-    400108: transform57
-    400110: transform58
-    400112: transform59
-    400114: transform60
-    400116: transform61
-    400118: transform62
-    2300000: pCube57
-    3300000: pCube57
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: pCube57
-    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

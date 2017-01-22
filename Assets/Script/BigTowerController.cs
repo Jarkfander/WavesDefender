@@ -32,7 +32,6 @@ public class BigTowerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.CompareTag("Monster")){
 			if (lastshot + fireRate < Time.time) {
-				Debug.Log ("HIT");
 				other.GetComponent<MobController> ().TakeDamage (1337, BuildingType.NONE);
 				target = other.transform.position;
 				lastshot = Time.time;

@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ae2c5b8f09cbe47b8036ef28a8b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 0.2
 --- !u!114 &114246063436680302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoints: 30
   _element: 0
+  goldValue: 2
 --- !u!136 &136175256826639918
 CapsuleCollider:
   m_ObjectHideFlags: 1

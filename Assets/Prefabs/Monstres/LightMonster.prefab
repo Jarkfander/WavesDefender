@@ -501,7 +501,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4142265953568162}
-  - component: {fileID: 95863282239341466}
   - component: {fileID: 114394811342741900}
   - component: {fileID: 114397180076974464}
   - component: {fileID: 54638593346482876}
@@ -1844,23 +1843,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!95 &95863282239341466
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1588414047531290}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 10bbf1966fcceba4e8b531bf5c07f48d, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114394811342741900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1874,6 +1856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoints: 15
   _element: 0
+  goldValue: 2
 --- !u!114 &114397180076974464
 MonoBehaviour:
   m_ObjectHideFlags: 1

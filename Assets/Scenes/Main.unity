@@ -1775,6 +1775,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 253419255}
+  - component: {fileID: 253419256}
   m_Layer: 0
   m_Name: MobSpawn2
   m_TagString: Untagged
@@ -1805,6 +1806,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &253419256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253419254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 2
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1 &254369849 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b00e87c6a6c7cf94897beabed820fc1f, type: 3}
@@ -3123,6 +3138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 523978821}
+  - component: {fileID: 523978822}
   m_Layer: 0
   m_Name: MobSpawn8
   m_TagString: Untagged
@@ -3153,6 +3169,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &523978822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523978820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 8
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1001 &531973956
 Prefab:
   m_ObjectHideFlags: 0
@@ -4505,6 +4535,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 734833746}
+  - component: {fileID: 734833747}
   m_Layer: 0
   m_Name: MobSpawn1
   m_TagString: Untagged
@@ -4535,6 +4566,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734833747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734833745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 1
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!224 &739891498 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224980830092016494, guid: 2de466feb07c2344fab892019a65bfac,
@@ -4990,6 +5035,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 799537261}
+  - component: {fileID: 799537262}
   m_Layer: 0
   m_Name: MobSpawn5
   m_TagString: Untagged
@@ -5020,6 +5066,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &799537262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799537260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 5
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1 &801702262 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1457733450753120, guid: e06858ab8e10fbd4b89c6798627690b8,
@@ -5143,6 +5203,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 822255827}
+  - component: {fileID: 822255828}
   m_Layer: 0
   m_Name: MobSpawn4
   m_TagString: Untagged
@@ -5173,6 +5234,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
+--- !u!114 &822255828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822255826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 4
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1 &846961833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,6 +7754,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1244240345}
+  - component: {fileID: 1244240346}
   m_Layer: 0
   m_Name: MobSpawn6
   m_TagString: Untagged
@@ -7709,6 +7785,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1244240346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244240344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 6
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1 &1265949505
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,6 +8106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1349324470}
+  - component: {fileID: 1349324471}
   m_Layer: 0
   m_Name: MobSpawn7
   m_TagString: Untagged
@@ -8046,6 +8137,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 180}
+--- !u!114 &1349324471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1349324469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 7
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1001 &1377785277
 Prefab:
   m_ObjectHideFlags: 0
@@ -10075,6 +10180,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1750537486}
+  - component: {fileID: 1750537487}
   m_Layer: 0
   m_Name: MobSpawn3
   m_TagString: Untagged
@@ -10105,6 +10211,20 @@ Transform:
   m_Father: {fileID: 612227560}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1750537487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750537485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24127b80d90b589429cad018728aa3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mobSpawnNumber: 3
+  _pathNodeNumber: 0
+  _pathNode: {fileID: 0}
 --- !u!1001 &1760887952
 Prefab:
   m_ObjectHideFlags: 0

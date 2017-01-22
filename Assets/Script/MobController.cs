@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum Element {
     Light = 0,
-    Sound = 1
+    Sound = 1,
+	Void = 2
 }
 
 public class MobController : MonoBehaviour {

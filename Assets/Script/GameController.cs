@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     //Economie
     [SerializeField]
     private int _startingGold = 0;
-    private int _currentGold =0;
+    private int _currentGold = 0;
     [SerializeField]
     private UnityEngine.UI.Text _goldText = null;
 
@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
     private GameObject _lightMonster = null;
     [SerializeField]
     private GameObject _soundMonster = null;
+	[SerializeField]
+	private GameObject _voidMonster = null;
 
 
     //Gestion des phases de jeu (calme ou spawning)
@@ -162,15 +164,14 @@ public class GameController : MonoBehaviour
 
             while (!_isACalmPhase)
             {
-                Element mobElement = (Element)Random.Range(0, 2);
-                if (mobElement.Equals(Element.Light))
-                {
-                    monsterToSpawn = _lightMonster;
-                }
-                else if (mobElement.Equals(Element.Sound))
-                {
-                    monsterToSpawn = _soundMonster;
-                }
+                Element mobElement = (Element)Random.Range(0, 3);
+				if (mobElement.Equals (Element.Light)) {
+					monsterToSpawn = _lightMonster;
+				} else if (mobElement.Equals (Element.Sound)) {
+					monsterToSpawn = _soundMonster;
+				} else if (mobElement.Equals (Element.Void)) {
+					monsterToSpawn = _voidMonster;
+				}
                 mobSpawn = RandomMobSpawn();
                 if (mobsSpawnedNumber < _mobsToSpawnNumber && !_isGameOver)
                 {

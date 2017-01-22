@@ -21,10 +21,14 @@ public class PlayerCollider : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Monster")
-        {
-            Destroy(other.gameObject);
-
+        { 
+			if(other.GetComponent<MobController>().getMonsterElement()== Element.Void){
+				playerLife++;
+			}else{
 			playerLife--;
+			}
+
+			Destroy(other.gameObject);
 
 			livesText.text = "Structure : " + playerLife;
 

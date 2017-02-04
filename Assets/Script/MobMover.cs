@@ -34,18 +34,6 @@ public class MobMover : MonoBehaviour
             Transform pathNodeToFollow = _mobSpawn.transform.GetChild(_currentPathNodeNumber);
             if (pathNodeToFollow != null)
             {
-                if (_currentPathNodeNumber == 4){
-                    _pNR._pathNodeNumber = 3;
-                    _pNR._pathNode = _mobSpawn.transform.GetChild(3);
-                }
-                if (_currentPathNodeNumber == 6){
-                    _pNR._pathNodeNumber = 5;
-                    _pNR._pathNode = _mobSpawn.transform.GetChild(5);
-                }
-                if (_currentPathNodeNumber == 8){
-                    _pNR._pathNodeNumber = 7;
-                    _pNR._pathNode = _mobSpawn.transform.GetChild(7);
-                }
 
                 transform.rotation = Quaternion.LookRotation(pathNodeToFollow.transform.position - gameObject.transform.position);
                 _rb.velocity = transform.forward * _speed;
